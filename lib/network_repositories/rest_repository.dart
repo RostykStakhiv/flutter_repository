@@ -77,7 +77,7 @@ abstract class RestRepository<ItemType> implements Repository<ItemType> {
   ItemCreator get updateParseFunction;
   ItemCreator get deleteParseFunction;
 
-  Map<String, String> defaultHeaders();
+  Map<String, String> get defaultHeaders;
   Set<int> get successfullStatusCodes;
 
   Future<RestRepositoryResponse> performRequest(RestRepositoryRequest request);

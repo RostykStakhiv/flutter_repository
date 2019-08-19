@@ -72,7 +72,7 @@ abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
     _uriBuilder.path = '${defaultRoute ?? getOneRoute}/${id.toString()}';
     final url = _uriBuilder.build().toString();
     final request = RestRepositoryRequest(
-        url: url, httpMethod: 'GET', headers: defaultHeaders());
+        url: url, httpMethod: 'GET', headers: defaultHeaders);
     final response = await performRequest(request);
     return parseResponse<ItemType>(
         response: response,
@@ -85,7 +85,7 @@ abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
     _uriBuilder.path = defaultRoute ?? createRoute;
     final url = _uriBuilder.build().toString();
     final request = RestRepositoryRequest(
-        url: url, httpMethod: 'POST', body: body, headers: defaultHeaders());
+        url: url, httpMethod: 'POST', body: body, headers: defaultHeaders);
     final response = await performRequest(request);
     final res = await parseResponse<ItemType>(
         response: response,
@@ -99,7 +99,7 @@ abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
     _uriBuilder.path = (defaultRoute ?? updateRoute) + '/$id';
     final url = _uriBuilder.build().toString();
     final request = RestRepositoryRequest(
-        url: url, httpMethod: 'PUT', headers: defaultHeaders());
+        url: url, httpMethod: 'PUT', headers: defaultHeaders);
     final response = await performRequest(request);
     return parseResponse<ItemType>(
         response: response,
@@ -111,7 +111,7 @@ abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
     _uriBuilder.path = defaultRoute ?? deleteRoute;
     final url = _uriBuilder.build().toString();
     final request = RestRepositoryRequest(
-        url: url, httpMethod: 'DELETE', headers: defaultHeaders());
+        url: url, httpMethod: 'DELETE', headers: defaultHeaders);
     final response = await performRequest(request);
     return parseResponse<ItemType>(
         response: response,
@@ -162,7 +162,7 @@ abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
   }
 
   @override
-  Map<String, String> defaultHeaders() {
+  Map<String, String> get defaultHeaders {
     return {};
   }
 
