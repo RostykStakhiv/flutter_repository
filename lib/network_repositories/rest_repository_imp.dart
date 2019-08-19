@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_repository/network_repositories/network_config.dart';
 import 'package:flutter_repository/network_repositories/rest_repository.dart';
+import 'package:flutter_repository/src/constants/constants.dart';
 import 'package:uri/uri.dart';
 
 abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
@@ -137,7 +138,8 @@ abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
       }
 
       final parsedObject = parseFunction(jsonDecode(response.body));
-      return RestRepositoryResult<ResponseType>(response: response, value: parsedObject);
+      return RestRepositoryResult<ResponseType>(
+          response: response, value: parsedObject);
     } else {
       return RestRepositoryResult<ResponseType>(
         response: response,
@@ -168,6 +170,6 @@ abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
 
   @override
   Set<int> get successfullStatusCodes {
-    return {200};
+    return StatusCodeConstants.successfulStatusCodes;
   }
 }
