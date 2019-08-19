@@ -122,6 +122,14 @@ abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
   @override
   Future<RestRepositoryResponse> performRequest(
       RestRepositoryRequest request) async {
+    if (request.headers == null) {
+      request.headers = defaultHeaders;
+    } else {
+      for (final key in defaultHeaders.keys) {
+        request.headers.putIfAbsent(key, () => defaultHeaders[key]);
+      }
+    }
+
     debugPrint('Performing request: ${request.toString()}');
 
     return _client.performRequest(request);
