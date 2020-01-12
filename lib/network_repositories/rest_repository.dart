@@ -56,10 +56,6 @@ class RestRepositoryResponse {
   }
 }
 
-abstract class RestRepositoryClient {
-  Future<RestRepositoryResponse> performRequest(RestRepositoryRequest request);
-}
-
 abstract class RestRepository<ItemType> implements Repository<ItemType> {
   String get getAllRoute;
   String get getOneRoute;

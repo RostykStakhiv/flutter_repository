@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_repository/clients/rest/rest_repository_client.dart';
 import 'package:flutter_repository/network_repositories/network_config.dart';
 import 'package:flutter_repository/network_repositories/rest_repository.dart';
 import 'package:flutter_repository/src/constants/constants.dart';
