@@ -11,11 +11,11 @@ class PageMetadata{
       totalCount: json['totalCount'] as int);
 }
 
-class Page<ItemType>{
+class MPage<ItemType>{
   List<ItemType> data;
   PageMetadata metadata;
 
-  Page({this.data, this.metadata});
+  MPage({this.data, this.metadata});
 }
 
 class RepositoryResult<ItemType> {
@@ -27,7 +27,7 @@ class RepositoryResult<ItemType> {
 
 abstract class Repository<ItemType> {
 
-  Future<RepositoryResult<Page<ItemType>>> getPage(int page, int pageSize, [Map<String, String> queryParams]);
+  Future<RepositoryResult<MPage<ItemType>>> getPage(int page, int pageSize, [Map<String, String> queryParams]);
 
   Future<RepositoryResult<List<ItemType>>> getAll([Map<String, String> queryParams]);
 
