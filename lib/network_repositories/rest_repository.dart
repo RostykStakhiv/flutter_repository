@@ -7,11 +7,13 @@ typedef S ItemCreator<S>(Map<String, dynamic> json);
 
 class NetworkError extends Error {
   int errorCode;
+  String type;
   final String errorMsg;
   final String errorTitle;
 
   NetworkError(
       {@required this.errorMsg,
+      this.type,
       this.errorTitle = 'Something went wrong',
       this.errorCode});
 }
