@@ -6,11 +6,14 @@ export '../repository.dart';
 typedef S ItemCreator<S>(Map<String, dynamic> json);
 
 class NetworkError extends Error {
+  int errorCode;
   final String errorMsg;
   final String errorTitle;
 
   NetworkError(
-      {@required this.errorMsg, this.errorTitle = 'Something went wrong'});
+      {@required this.errorMsg,
+      this.errorTitle = 'Something went wrong',
+      this.errorCode});
 }
 
 class RestRepositoryResult<ItemType> extends RepositoryResult<ItemType> {
