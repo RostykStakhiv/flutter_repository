@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_repository/clients/rest/rest_repository_client.dart';
 import 'package:flutter_repository/network_repositories/network_config.dart';
 import 'package:flutter_repository/network_repositories/rest_repository.dart';
@@ -50,13 +50,13 @@ abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
 
   @override
   Future<RestRepositoryResult<Page<ItemType>>> getPage(int page, int pageSize,
-      [Map<String, String> queryParams]) {
+      [Map<String, String> queryParams = const <String, String>{}]) {
     return null;
   }
 
   @override
   Future<RestRepositoryResult<List<ItemType>>> getAll(
-      [Map<String, String> queryParams]) async {
+      [Map<String, String> queryParams = const <String, String>{}]) async {
     _uriBuilder.path = defaultRoute ?? getAllRoute;
     _uriBuilder.queryParameters = queryParams;
 
@@ -157,12 +157,13 @@ abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
     }
   }
 
-  Uri buildUri(
-      {@required String path,
-      String scheme,
-      String host,
-      int port,
-      Map<String, String> params}) {
+  Uri buildUri({
+    @required String path,
+    String scheme,
+    String host,
+    int port,
+    Map<String, String> params = const <String, String>{},
+  }) {
     final UriBuilder uriBuilder = UriBuilder();
     uriBuilder.scheme = scheme ?? networkConfig.apiScheme;
     uriBuilder.host = host ?? networkConfig.apiHost;
