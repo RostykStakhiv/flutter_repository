@@ -49,7 +49,7 @@ abstract class RestRepositoryImp<ItemType> implements RestRepository<ItemType> {
   ItemCreator get deleteParseFunction => null;
 
   @override
-  Future<RestRepositoryResult<Page<ItemType>>> getPage(int page, int pageSize,
+  Future<RestRepositoryResult<MPage<ItemType>>> getPage(int page, int pageSize,
       [Map<String, String> queryParams = const <String, String>{}]) {
     return null;
   }
